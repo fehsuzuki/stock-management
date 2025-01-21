@@ -1,13 +1,14 @@
 import {Button, Table} from '@radix-ui/themes'
+import styles from './styles.module.css'
 
 export const RunningOutItemsTable: React.FC = () => {
    return(
-      <Table.Root mt={"9"}>
+      <Table.Root mt={"9"} size={"3"}>
          <Table.Header>
-            <Table.Row align={"center"} style={{backgroundColor: "#000"}}>
-               <Table.ColumnHeaderCell justify={"center"}>Running out items</Table.ColumnHeaderCell>
-               <Table.ColumnHeaderCell justify={"center"}>Quantity</Table.ColumnHeaderCell>
-               <Table.ColumnHeaderCell justify={"center"}>Actions</Table.ColumnHeaderCell>
+            <Table.Row className={styles.header} align={"center"}>
+               <Table.ColumnHeaderCell justify={"center"} width={"300px"}>Running out items</Table.ColumnHeaderCell>
+               <Table.ColumnHeaderCell justify={"center"} width={"300px"}>Quantity</Table.ColumnHeaderCell>
+               <Table.ColumnHeaderCell justify={"center"} width={"300px"}>Actions</Table.ColumnHeaderCell>
             </Table.Row>
          </Table.Header>
 
@@ -16,7 +17,7 @@ export const RunningOutItemsTable: React.FC = () => {
                <Table.RowHeaderCell justify={"center"}>Danilo Sousa</Table.RowHeaderCell>
                <Table.Cell justify={"center"}>danilo@example.com</Table.Cell>
                <Table.Cell justify={"center"}>
-                  <Button/>
+                  <Button color="gray" variant='solid'>See</Button>
                </Table.Cell>
             </Table.Row>
 
@@ -24,7 +25,7 @@ export const RunningOutItemsTable: React.FC = () => {
                <Table.RowHeaderCell justify={"center"}>Zahra Ambessa</Table.RowHeaderCell>
                <Table.Cell justify={"center"}>zahra@example.com</Table.Cell>
                <Table.Cell justify={"center"}>
-                  <Button/>
+                  <Button color="gray" variant='solid'>See</Button>
                </Table.Cell>
             </Table.Row>
 
@@ -32,7 +33,7 @@ export const RunningOutItemsTable: React.FC = () => {
                <Table.RowHeaderCell justify={"center"}>Zahra Ambessa</Table.RowHeaderCell>
                <Table.Cell justify={"center"}>zahra@example.com</Table.Cell>
                <Table.Cell justify={"center"}>
-                  <Button/>
+                  <Button color="gray" variant='solid'>See</Button>
                </Table.Cell>
             </Table.Row>
          </Table.Body>

@@ -1,10 +1,10 @@
 import { Box, Flex, Grid, ScrollArea } from "@radix-ui/themes"
-import { NavBar } from "../components/NavBar"
+import { NavBar } from "../components/NavBar/NavBar"
 import { ItemCard } from "../components/ItemCard"
-import { RecentItemsTable } from "../components/RecentItemsTable"
-import { RunningOutItemsTable } from "../components/RunningOutItemsTable"
+import { RecentItemsTable } from "../components/RecentItemsTable/RecentItemsTable"
+import { RunningOutItemsTable } from "../components/RunningOutItemsTable/RunningOutItemsTable"
 
-export const Home: React.FC = () => {
+export const Dashboard: React.FC = () => {
    return(
       <Box>
          <NavBar/>
