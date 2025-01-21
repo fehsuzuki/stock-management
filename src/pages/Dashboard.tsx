@@ -8,18 +8,18 @@ export const Dashboard: React.FC = () => {
    return(
       <Box>
          <NavBar/>
-         <ScrollArea scrollbars="horizontal">
-            <Grid columns={"4"} gap={"5"} minWidth={"1024px"} mt={"5"}>
+         <ScrollArea scrollbars="horizontal" mt={"9"}>
+            <Grid columns={"4"} gap={"5"} minWidth={"1024px"} >
                <ItemCard />
                <ItemCard />
                <ItemCard />
                <ItemCard />
             </Grid>
+            <Flex gap={"9"} justify={"center"}>
+               <RecentItemsTable/>
+               <RunningOutItemsTable/>
+            </Flex>
          </ScrollArea>
-         <Flex gap={"9"} justify={"center"}>
-            <RecentItemsTable/>
-            <RunningOutItemsTable/>
-         </Flex>
       </Box>
    )
 }
