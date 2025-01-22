@@ -19,7 +19,7 @@ export const StockItems: React.FC = () => {
          <Box mx={"5"}>
             <hr></hr>
          </Box>
-         <UpdateItem/>
+         <Outlet/>
       </>
    )
 }

@@ -1,9 +1,14 @@
 import { Box, Button, Flex, Select, Text, TextArea, TextField } from "@radix-ui/themes"
+import { FormEventHandler } from "react"
 
 export const CreateNewItem: React.FC = () => {
+   const handleSubmit: FormEventHandler<HTMLFormElement> = (ev) => {
+      ev.preventDefault()
+   }
+
    return(
      <Flex m={"9"} justify={"center"}>
-      <form>
+      <form onSubmit={handleSubmit}>
          <Flex direction={"column"} gap={"5"}>
             <Flex gap={"7"} >
                <Box>
