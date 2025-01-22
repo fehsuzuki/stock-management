@@ -1,8 +1,7 @@
 import { Box, Flex, Text } from "@radix-ui/themes"
 import { NavBar } from "../components/NavBar/NavBar"
 import { Link, Outlet } from "react-router-dom"
-import { ShowItem } from "./ShowItem"
-import { UpdateItem } from "./UpdateItem"
+
 
 export const StockItems: React.FC = () => {
    return(
