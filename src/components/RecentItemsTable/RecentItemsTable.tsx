@@ -15,14 +15,7 @@ export const RecentItemsTable: React.FC = () => {
             <Table.Row align={"center"}>
                <Table.RowHeaderCell justify={"center"}>Danilo Sousa</Table.RowHeaderCell>
                <Table.Cell justify={"center"}>
-                  <Button color="gray" variant='solid'>See</Button>
-               </Table.Cell>
-            </Table.Row>
-
-            <Table.Row align={"center"}>
-               <Table.RowHeaderCell justify={"center"}>Zahra Ambessa</Table.RowHeaderCell>
-               <Table.Cell justify={"center"}>
-                  <Button color="gray" variant='solid'>See</Button>
+                  <Button>See</Button>
                </Table.Cell>
             </Table.Row>
          </Table.Body>
