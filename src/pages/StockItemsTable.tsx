@@ -1,6 +1,10 @@
 import {Button, Flex, Table} from '@radix-ui/themes'
+import { useContext } from 'react'
+import { StockContext } from '../contexts/StockContext'
 
 export const StockItemsTable: React.FC = () => {
+   const {items} = useContext(StockContext)
+
    return(
       <Table.Root mt={"9"} mx={"5"} size={"3"}>
          <Table.Header>
@@ -14,33 +18,21 @@ export const StockItemsTable: React.FC = () => {
          </Table.Header>
 
          <Table.Body>
-            <Table.Row align={"center"}>
-               <Table.RowHeaderCell justify={"center"}>Danilo Sousa</Table.RowHeaderCell>
-               <Table.Cell justify={"center"}>danilo@example.com</Table.Cell>
-               <Table.Cell justify={"center"}>danilo@example.com</Table.Cell>
-               <Table.Cell justify={"center"}>danilo@example.com</Table.Cell>
-               <Table.Cell justify={"center"}>
-                  <Flex gap={"4"}>
-                     <Button>See</Button>
-                     <Button>Update</Button>
-                     <Button>Delete</Button>
-                  </Flex>
-               </Table.Cell>
-            </Table.Row>
-
-            <Table.Row align={"center"}>
-               <Table.RowHeaderCell justify={"center"}>Zahra Ambessa</Table.RowHeaderCell>
-               <Table.Cell justify={"center"}>zahra@example.com</Table.Cell>
-               <Table.Cell justify={"center"}>danilo@example.com</Table.Cell>
-               <Table.Cell justify={"center"}>danilo@example.com</Table.Cell>
-               <Table.Cell justify={"center"}>
-                  <Flex gap={"4"}>
-                     <Button>See</Button>
-                     <Button>Update</Button>
-                     <Button>Delete</Button>
-                  </Flex>
-               </Table.Cell>
-            </Table.Row>
+            {items.map((item) => (
+               <Table.Row align={"center"}>
+                  <Table.Cell justify={"center"}>{item.id}</Table.Cell>
+                  <Table.Cell justify={"center"}>{item.name}</Table.Cell>
+                  <Table.Cell justify={"center"}>{item.quantity}</Table.Cell>
+                  <Table.Cell justify={"center"}>{item.category}</Table.Cell>
+                  <Table.Cell justify={"center"}>
+                     <Flex gap={"4"}>
+                        <Button>See</Button>
+                        <Button color='gray' >Update</Button>
+                        <Button color='red'>Delete</Button>
+                     </Flex>
+                  </Table.Cell>
+               </Table.Row>
+            ))}
          </Table.Body>
       </Table.Root>
    )
