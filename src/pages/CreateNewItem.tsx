@@ -1,7 +1,20 @@
 import { Box, Button, Flex, Select, Text, TextArea, TextField } from "@radix-ui/themes"
-import { FormEventHandler } from "react"
+import { FormEventHandler, useContext } from "react"
+import { StockContext } from "../contexts/StockContext"
+import { z } from "zod";
+
+const CreateItemSchema = z.object({
+   name: z.string(),
+   quantity: z.number(),
+   price: z.number(),
+   category: z.enum(['accessories', 'books', 'games', 'objects', 'other']),
+   description: z.string(),
+ });
+ 
 
 export const CreateNewItem: React.FC = () => {
+   const {createItem} = useContext(StockContext)
+
    const handleSubmit: FormEventHandler<HTMLFormElement> = (ev) => {
       ev.preventDefault()
    }
@@ -17,11 +30,11 @@ export const CreateNewItem: React.FC = () => {
                </Box>
                <Box>
                   <Text>Quantity</Text>
-                  <TextField.Root type="number" name="name" required></TextField.Root>
+                  <TextField.Root type="number" name="quantity" id="quantity" required></TextField.Root>
                </Box>
                <Box>
                   <Text>Price</Text>
-                  <TextField.Root type="number" name="name" required></TextField.Root>
+                  <TextField.Root type="number" name="price" required></TextField.Root>
                </Box>
                <Flex direction={"column"}>
                   <Text>Category</Text>
@@ -42,7 +55,7 @@ export const CreateNewItem: React.FC = () => {
             </Flex>
             <Box>
                <Text>Description</Text>
-               <TextArea></TextArea>
+               <TextArea name="description"></TextArea>
             </Box>
             <Flex justify={"end"}>
                <Button type="submit">Create</Button>

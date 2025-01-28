@@ -1,7 +1,7 @@
 export type ItemCategory = 'accessories' | 'books' | 'games' | 'objects' | 'other'
 
 export interface Item {
-   id: string
+   id: string,
    name: string,
    quantity: number,
    price: number,
