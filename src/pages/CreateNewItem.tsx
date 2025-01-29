@@ -15,8 +15,10 @@ const CreateItemSchema = z.object({
 export const CreateNewItem: React.FC = () => {
    const {createItem} = useContext(StockContext)
 
-   const handleSubmit: FormEventHandler<HTMLFormElement> = (ev) => {
+   const handleSubmit: FormEventHandler<HTMLFormElement> =  async (ev) => {
       ev.preventDefault()
+
+
    }
 
    return(
@@ -30,7 +32,7 @@ export const CreateNewItem: React.FC = () => {
                </Box>
                <Box>
                   <Text>Quantity</Text>
-                  <TextField.Root type="number" name="quantity" id="quantity" required></TextField.Root>
+                  <TextField.Root type="number" name="quantity" required></TextField.Root>
                </Box>
                <Box>
                   <Text>Price</Text>

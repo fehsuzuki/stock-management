@@ -4,7 +4,7 @@ import { itemsService } from "../services/api";
 
 export interface StockContextData {
    items: Item[],
-   createItem: (atrributes: Omit<Item, "id">) => Promise<Item>
+   createItem: (atrributes: Omit<Item, "id">) => Promise<void>
    // updateItem: (id: string, atrributes: Partial<Omit<Item, "id">>) => Promise<void>
    // deleteItem: (id: string) => Promise<void>
 }
@@ -24,9 +24,11 @@ export const StockContextProvider: React.FC<StockContextProviderProps> = ({child
       })
    }, [])
 
-   const createItem = async () => {
-      const newItem: Item = {id: "300", name: "Teclado Logitech", quantity: 23, price: 199.90, category: "objects", description: "Teclado para uso casual"}
-      return newItem
+   const createItem = async (atrributes: Omit<Item, 'id'>) => {
+      setItems((currentState) => {
+         const updatedState = [...currentState, {id: "100", ...atrributes}] 
+         return updatedState
+      })
    }
    
    return(
