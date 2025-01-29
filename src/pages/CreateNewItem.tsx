@@ -18,7 +18,18 @@ export const CreateNewItem: React.FC = () => {
    const handleSubmit: FormEventHandler<HTMLFormElement> =  async (ev) => {
       ev.preventDefault()
 
+      const formData = new FormData(ev.currentTarget)
+      const name = formData.get('name')
+      const quantity = formData.get('quantity')
+      const price = formData.get('price')
+      const category = formData.get('category')
+      const description = formData.get('description')
 
+      ev.currentTarget.reset()
+
+      const itemData = CreateItemSchema.parse({name, quantity, price, category, description})
+
+      await createItem(itemData)
    }
 
    return(
@@ -40,11 +51,10 @@ export const CreateNewItem: React.FC = () => {
                </Box>
                <Flex direction={"column"}>
                   <Text>Category</Text>
-                  <Select.Root defaultValue="category" required>
+                  <Select.Root name="category" required>
                      <Select.Trigger/>
                      <Select.Content>
                         <Select.Group>
-                           <Select.Item value="category" disabled>Select a category</Select.Item>
                            <Select.Item value="accessories">Accessories</Select.Item>
                            <Select.Item value="books">Books</Select.Item>
                            <Select.Item value="games">Games</Select.Item>
