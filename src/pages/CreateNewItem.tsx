@@ -20,8 +20,8 @@ export const CreateNewItem: React.FC = () => {
 
       const formData = new FormData(ev.currentTarget)
       const name = formData.get('name')
-      const quantity = formData.get('quantity')
-      const price = formData.get('price')
+      const quantity = Number(formData.get('quantity'))
+      const price = Number(formData.get('price'))
       const category = formData.get('category')
       const description = formData.get('description')
 
