@@ -21,7 +21,7 @@ export const RunningOutItemsTable: React.FC = () => {
             {items.map((item) => {
                if(item.quantity < 5) {
                   return(
-                     <Table.Row align={"center"}>
+                     <Table.Row align={"center"} key={item.id}>
                         <Table.Cell justify={"center"}>{item.name}</Table.Cell>
                         <Table.Cell justify={"center"}>{item.quantity}</Table.Cell>
                         <Table.Cell justify={"center"}>

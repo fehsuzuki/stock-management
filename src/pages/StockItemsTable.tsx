@@ -19,7 +19,7 @@ export const StockItemsTable: React.FC = () => {
 
          <Table.Body>
             {items.map((item) => (
-               <Table.Row align={"center"}>
+               <Table.Row align={"center"} key={item.id}>
                   <Table.Cell justify={"center"}>{item.id}</Table.Cell>
                   <Table.Cell justify={"center"}>{item.name}</Table.Cell>
                   <Table.Cell justify={"center"}>{item.quantity}</Table.Cell>
