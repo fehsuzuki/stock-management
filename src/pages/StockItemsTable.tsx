@@ -1,6 +1,7 @@
 import {Button, Flex, Table} from '@radix-ui/themes'
 import { useContext } from 'react'
 import { StockContext } from '../contexts/StockContext'
+import { DeleteDialog } from '../components/DeleteDialog'
 
 export const StockItemsTable: React.FC = () => {
    const {items} = useContext(StockContext)
@@ -27,8 +28,8 @@ export const StockItemsTable: React.FC = () => {
                   <Table.Cell justify={"center"}>
                      <Flex gap={"4"}>
                         <Button>See</Button>
-                        <Button color='gray' >Update</Button>
-                        <Button color='red'>Delete</Button>
+                        <Button color='bronze'>Update</Button>
+                        <DeleteDialog id={item.id}/>
                      </Flex>
                   </Table.Cell>
                </Table.Row>

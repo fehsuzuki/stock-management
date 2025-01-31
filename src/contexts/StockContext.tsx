@@ -6,7 +6,7 @@ export interface StockContextData {
    items: Item[],
    createItem: (atrributes: Omit<Item, "id">) => Promise<void>
    // updateItem: (id: string, atrributes: Partial<Omit<Item, "id">>) => Promise<void>
-   // deleteItem: (id: string) => Promise<void>
+   deleteItem: (id: string) => Promise<void>
 }
 
 export const StockContext = createContext({} as StockContextData)
@@ -24,16 +24,23 @@ export const StockContextProvider: React.FC<StockContextProviderProps> = ({child
       })
    }, [])
 
-   const createItem = async (atrributes: Omit<Item, 'id'>) => {
-      const newItem = await itemsService.createTask(atrributes)
+   const createItem = async(atrributes: Omit<Item, 'id'>) => {
+      const newItem = await itemsService.createItem(atrributes)
 
       setItems((currentState) => {
-         const updatedState = [...currentState, newItem] 
+         const updatedState = [...currentState, newItem]
+
          return updatedState
       })
    }
+
+   const deleteItem = async(id: string) => {
+      await itemsService.deleteItem(id)
+      
+      setItems((currentState) => currentState.filter((item) => item.id !== id))
+   }
    
    return(
-      <StockContext.Provider value={{items, createItem}}>{children}</StockContext.Provider>
+      <StockContext.Provider value={{items, createItem, deleteItem}}>{children}</StockContext.Provider>
    )
 }

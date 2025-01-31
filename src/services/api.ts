@@ -7,7 +7,7 @@ export const itemsService = {
       return data
    },
 
-   async createTask(attributes: Omit<Item, "id">): Promise<Item> {
+   async createItem(attributes: Omit<Item, "id">): Promise<Item> {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/items`, {
          method: "POST",
          headers: {
@@ -19,5 +19,11 @@ export const itemsService = {
       const newItem = response.json()
       
       return newItem
+   },
+
+   async deleteItem(id: string): Promise<void> {
+      await fetch(`${import.meta.env.VITE_API_URL}/items/${id}`, {
+         method: "DELETE"
+      })
    }
 }

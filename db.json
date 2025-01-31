@@ -39,14 +39,6 @@
       "price": "59.90",
       "category": "objects",
       "description": "Vaso decorativo de cerâmica com design minimalista."
-    },
-    {
-      "id": "194f",
-      "name": "teste",
-      "quantity": 1,
-      "price": 1,
-      "category": "books",
-      "description": "teste"
     }
   ]
 }
