@@ -7,6 +7,7 @@ export interface StockContextData {
    createItem: (atrributes: Omit<Item, "id">) => Promise<void>
    // updateItem: (id: string, atrributes: Partial<Omit<Item, "id">>) => Promise<void>
    deleteItem: (id: string) => Promise<void>
+   getItem: (id: string) => Item
 }
 
 export const StockContext = createContext({} as StockContextData)
@@ -39,8 +40,16 @@ export const StockContextProvider: React.FC<StockContextProviderProps> = ({child
       
       setItems((currentState) => currentState.filter((item) => item.id !== id))
    }
+
+   const getItem = (id: string) => {
+      const item = items.find((item) => item.id === id)
+      if (!item) {
+         throw new Error(`Item with id ${id} not found`)
+      }
+      return item
+   }
    
    return(
-      <StockContext.Provider value={{items, createItem, deleteItem}}>{children}</StockContext.Provider>
+      <StockContext.Provider value={{items, createItem, deleteItem, getItem}}>{children}</StockContext.Provider>
    )
 }

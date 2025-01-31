@@ -2,6 +2,7 @@ import {Button, Flex, Table} from '@radix-ui/themes'
 import { useContext } from 'react'
 import { StockContext } from '../contexts/StockContext'
 import { DeleteDialog } from '../components/DeleteDialog'
+import { Link } from 'react-router-dom'
 
 export const StockItemsTable: React.FC = () => {
    const {items} = useContext(StockContext)
@@ -27,9 +28,11 @@ export const StockItemsTable: React.FC = () => {
                   <Table.Cell justify={"center"}>{item.category}</Table.Cell>
                   <Table.Cell justify={"center"}>
                      <Flex gap={"4"}>
-                        <Button>See</Button>
-                        <Button color='bronze'>Update</Button>
-                        <DeleteDialog id={item.id}/>
+                        <Button>
+                           <Link to={`/items/${item.id}`}>See</Link>
+                        </Button>
+                        <Button color='bronze'>Edit</Button>
+                        <DeleteDialog id={item.id} name={item.name}/>
                      </Flex>
                   </Table.Cell>
                </Table.Row>
