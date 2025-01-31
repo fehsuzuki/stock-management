@@ -25,8 +25,10 @@ export const StockContextProvider: React.FC<StockContextProviderProps> = ({child
    }, [])
 
    const createItem = async (atrributes: Omit<Item, 'id'>) => {
+      const newItem = await itemsService.createTask(atrributes)
+
       setItems((currentState) => {
-         const updatedState = [...currentState, {id: "100", ...atrributes}] 
+         const updatedState = [...currentState, newItem] 
          return updatedState
       })
    }
