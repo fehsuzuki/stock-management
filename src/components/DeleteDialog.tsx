@@ -1,6 +1,7 @@
 import { AlertDialog, Button } from "@radix-ui/themes"
 import { useContext } from "react"
 import { StockContext } from "../contexts/StockContext"
+import { useNavigate } from "react-router-dom"
 
 interface DeleteDialogProps {
    id: string
@@ -9,6 +10,8 @@ interface DeleteDialogProps {
 
 export const DeleteDialog: React.FC<DeleteDialogProps> = ({id, name}) => {
    const {deleteItem} = useContext(StockContext)
+
+   const navigate = useNavigate()
 
    return(
       <AlertDialog.Root>   
@@ -28,7 +31,10 @@ export const DeleteDialog: React.FC<DeleteDialogProps> = ({id, name}) => {
 						<Button>Cancel</Button>
 					</AlertDialog.Cancel>
 					<AlertDialog.Action>
-						<Button color="red" onClick={() => deleteItem(id)}>Delete</Button>
+						<Button color="red" onClick={() => {
+                     deleteItem(id)
+                     navigate('/items')
+                  }}>Delete</Button>
 					</AlertDialog.Action>
 				</div>
 			</AlertDialog.Content>
