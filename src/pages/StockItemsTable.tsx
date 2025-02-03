@@ -3,6 +3,8 @@ import { useContext } from 'react'
 import { StockContext } from '../contexts/StockContext'
 import { DeleteDialog } from '../components/DeleteDialog'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 export const StockItemsTable: React.FC = () => {
    const {items} = useContext(StockContext)
@@ -28,10 +30,9 @@ export const StockItemsTable: React.FC = () => {
                   <Table.Cell justify={"center"}>{item.category}</Table.Cell>
                   <Table.Cell justify={"center"}>
                      <Flex gap={"4"}>
-                        <Button>
-                           <Link to={`/items/${item.id}`}>See</Link>
+                        <Button >
+                           <FontAwesomeIcon icon={faPenToSquare} />
                         </Button>
-                        <Button color='bronze'>Edit</Button>
                         <DeleteDialog id={item.id} name={item.name}/>
                      </Flex>
                   </Table.Cell>

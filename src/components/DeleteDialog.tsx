@@ -2,6 +2,8 @@ import { AlertDialog, Button } from "@radix-ui/themes"
 import { useContext } from "react"
 import { StockContext } from "../contexts/StockContext"
 import { useNavigate } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrash } from "@fortawesome/free-solid-svg-icons"
 
 interface DeleteDialogProps {
    id: string
@@ -16,7 +18,9 @@ export const DeleteDialog: React.FC<DeleteDialogProps> = ({id, name}) => {
    return(
       <AlertDialog.Root>   
          <AlertDialog.Trigger>
-            <Button color='red'>Delete</Button>
+            <Button color='red'>
+               <FontAwesomeIcon icon={faTrash} />
+            </Button>
          </AlertDialog.Trigger>
          <AlertDialog.Content className="AlertDialogContent">
 				<AlertDialog.Title className="AlertDialogTitle">
