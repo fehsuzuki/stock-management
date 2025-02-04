@@ -60,6 +60,8 @@ export const StockContextProvider: React.FC<StockContextProviderProps> = ({child
 
          Object.assign(updatedState[itemIndex], attributes)
 
+         console.log('oi')
+
          return updatedState
       })
    }

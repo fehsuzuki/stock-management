@@ -3,42 +3,50 @@
     {
       "id": "1",
       "name": "Nike GT Academy",
-      "quantity": "4",
-      "price": "499",
+      "quantity": 4,
+      "price": 499,
       "category": "accessories",
       "description": "Tênis ideal para jogadores de vôlei"
     },
     {
       "id": "2",
       "name": "Harry Potter and the Sorcerer's Stone",
-      "quantity": "10",
-      "price": "39.90",
+      "quantity": 10,
+      "price": 39.9,
       "category": "books",
       "description": "Primeiro livro da série Harry Potter, uma aventura mágica."
     },
     {
       "id": "3",
       "name": "Chess Set",
-      "quantity": "5",
-      "price": "79.99",
+      "quantity": 5,
+      "price": 79.99,
       "category": "games",
       "description": "Jogo de xadrez clássico com peças de madeira."
     },
     {
       "id": "4",
       "name": "LEGO City Police Station",
-      "quantity": "3",
-      "price": "299.90",
+      "quantity": 3,
+      "price": 299.9,
       "category": "toys",
       "description": "Construa sua própria delegacia de polícia com este conjunto LEGO."
     },
     {
       "id": "5",
       "name": "Ceramic Vase",
-      "quantity": "7",
-      "price": "59.90",
+      "quantity": 7,
+      "price": 59.9,
       "category": "objects",
       "description": "Vaso decorativo de cerâmica com design minimalista."
+    },
+    {
+      "name": "teste",
+      "quantity": 3,
+      "price": 2,
+      "category": "games",
+      "description": "teste",
+      "id": "e42c"
     }
   ]
 }
