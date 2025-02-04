@@ -25,5 +25,19 @@ export const itemsService = {
       await fetch(`${import.meta.env.VITE_API_URL}/items/${id}`, {
          method: "DELETE"
       })
+   },
+
+   async editItem(id: string, attributes: Partial<Omit<Item, "id">>): Promise<Item> {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/items/${id}`, {
+         method: "PUT",
+         headers: {
+            "Content-Type": "application/json"
+         },
+         body: JSON.stringify(attributes)
+      })
+
+      const updatedItem = await response.json()
+
+      return updatedItem
    }
 }

@@ -2,6 +2,7 @@ import { Box, Button, Flex, Select, Text, TextArea, TextField } from "@radix-ui/
 import { FormEventHandler, useContext } from "react"
 import { StockContext } from "../contexts/StockContext"
 import { z } from "zod";
+import { NewItemPop } from "../components/NewItemPop";
 
 const CreateItemSchema = z.object({
    name: z.string(),
@@ -58,7 +59,7 @@ export const CreateNewItem: React.FC = () => {
                            <Select.Item value="accessories">Accessories</Select.Item>
                            <Select.Item value="books">Books</Select.Item>
                            <Select.Item value="games">Games</Select.Item>
-                           <Select.Item value="object">Object</Select.Item>
+                           <Select.Item value="objects">Objects</Select.Item>
                            <Select.Item value="toys">Toys</Select.Item>
                         </Select.Group>
                      </Select.Content>
@@ -70,7 +71,9 @@ export const CreateNewItem: React.FC = () => {
                <TextArea name="description"></TextArea>
             </Box>
             <Flex justify={"end"}>
-               <Button type="submit">Create</Button>
+               <Button type="submit">
+                  Create
+               </Button>
             </Flex>
          </Flex>
       </form>

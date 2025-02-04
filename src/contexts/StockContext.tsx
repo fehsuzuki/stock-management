@@ -5,9 +5,10 @@ import { itemsService } from "../services/api";
 export interface StockContextData {
    items: Item[],
    createItem: (atrributes: Omit<Item, "id">) => Promise<void>
-   // updateItem: (id: string, atrributes: Partial<Omit<Item, "id">>) => Promise<void>
    deleteItem: (id: string) => Promise<void>
    getItem: (id: string) => Item
+   //Usando o Partial<Omit<>> porque nem sempre vamos alterar todas as propriedades de um item
+   editItem: (id: string, attributes: Partial<Omit<Item, "id">>) => Promise<void>
 }
 
 export const StockContext = createContext({} as StockContextData)
@@ -48,8 +49,22 @@ export const StockContextProvider: React.FC<StockContextProviderProps> = ({child
       }
       return item
    }
+
+   const editItem = async(id: string, attributes: Partial<Omit<Item, "id">>) => {
+      await itemsService.editItem(id, attributes)
+
+      setItems((currentState) => {
+         const updatedState = [...currentState]
+
+         const itemIndex = updatedState.findIndex((item) => item.id === id)
+
+         Object.assign(updatedState[itemIndex], attributes)
+
+         return updatedState
+      })
+   }
    
    return(
-      <StockContext.Provider value={{items, createItem, deleteItem, getItem}}>{children}</StockContext.Provider>
+      <StockContext.Provider value={{items, createItem, deleteItem, getItem, editItem}}>{children}</StockContext.Provider>
    )
 }

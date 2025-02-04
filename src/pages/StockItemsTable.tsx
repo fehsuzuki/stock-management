@@ -29,7 +29,7 @@ export const StockItemsTable: React.FC = () => {
                   <Table.Cell justify={"center"}>{item.category}</Table.Cell>
                   <Table.Cell justify={"center"}>
                      <Flex gap={"4"}>
-                        <EditDialog attributes={item}/>
+                        <EditDialog id={item.id} attributes={item}/>
                         <DeleteDialog id={item.id} name={item.name}/>
                      </Flex>
                   </Table.Cell>
