@@ -17,12 +17,12 @@
       "description": "Primeiro livro da série Harry Potter, uma aventura mágica."
     },
     {
-      "id": "3",
       "name": "Chess Set",
       "quantity": 5,
-      "price": 79.99,
+      "price": 99.99,
       "category": "games",
-      "description": "Jogo de xadrez clássico com peças de madeira."
+      "description": "Jogo de xadrez clássico com peças de madeira.",
+      "id": "3"
     },
     {
       "id": "4",
@@ -41,12 +41,14 @@
       "description": "Vaso decorativo de cerâmica com design minimalista."
     },
     {
+      "id": "a5d8",
       "name": "teste",
-      "quantity": 3,
-      "price": 2,
-      "category": "games",
+      "quantity": 1,
+      "price": 1,
+      "category": "books",
       "description": "teste",
-      "id": "e42c"
+      "createdAt": "2025-02-04T17:45:56.602Z",
+      "updatedAt": "2025-02-04T17:45:56.602Z"
     }
   ]
 }

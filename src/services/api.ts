@@ -24,7 +24,7 @@ export const itemsService = {
    async deleteItem(id: string): Promise<void> {
       await fetch(`${import.meta.env.VITE_API_URL}/items/${id}`, {
          method: "DELETE"
-      })
+      })  
    },
 
    async editItem(id: string, attributes: Partial<Omit<Item, "id">>): Promise<Item> {

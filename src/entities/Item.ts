@@ -12,4 +12,6 @@ export interface Item {
   price: number;
   category: ItemCategory;
   description: string;
+  createdAt: Date;
+  updatedAt: Date;
 }

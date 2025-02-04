@@ -24,12 +24,12 @@ const CreateItemSchema = z.object({
   price: z.number(),
   category: z.enum(["accessories", "books", "games", "objects", "toys"]),
   description: z.string(),
+  createdAt: z.date(),
+  updatedAt: z.date()
 });
 
 export const EditDialog: React.FC<EditDialogProps> = ({ id, attributes }) => {
   const { editItem } = useContext(StockContext);
-
-  console.log('oi')
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (ev) => {
     ev.preventDefault();
@@ -41,6 +41,8 @@ export const EditDialog: React.FC<EditDialogProps> = ({ id, attributes }) => {
     const price = Number(formData.get("price"));
     const category = formData.get("category");
     const description = formData.get("description");
+    const createdAt = attributes.createdAt
+    const updatedAt = new Date()
 
     const itemData = CreateItemSchema.parse({
       name,
@@ -48,89 +50,91 @@ export const EditDialog: React.FC<EditDialogProps> = ({ id, attributes }) => {
       price,
       category,
       description,
+      createdAt,
+      updatedAt
     });
 
-    await editItem(id, itemData)
+    await editItem(id, itemData);
   };
 
   return (
     <AlertDialog.Root>
-        <AlertDialog.Trigger>
-          <Button>
-            <FontAwesomeIcon icon={faPenToSquare} />
-          </Button>
-        </AlertDialog.Trigger>
-        <AlertDialog.Content>
-          <form onSubmit={handleSubmit}>
-            <AlertDialog.Title align={"center"} mb={"5"}>
-              Edit {attributes.name}
-            </AlertDialog.Title>
-            <AlertDialog.Description></AlertDialog.Description>
-            <Flex direction={"column"} gap={"3"}>
-              <div>
-                <label htmlFor="name">Name</label>
-                <TextField.Root
-                  type="text"
-                  name="name"
-                  defaultValue={attributes.name}
-                  required
-                ></TextField.Root>
-              </div>
-              <div>
-                <label htmlFor="quantity">Quantity</label>
-                <TextField.Root
-                  type="number"
-                  name="quantity"
-                  defaultValue={attributes.quantity}
-                  required
-                ></TextField.Root>
-              </div>
-              <div>
-                <label htmlFor="price">Price</label>
-                <TextField.Root
-                  type="text"
-                  name="price"
-                  defaultValue={attributes.price}
-                  required
-                ></TextField.Root>
-              </div>
-              <Flex direction={"column"}>
-                <label htmlFor="name">Category</label>
-                <Select.Root
-                  name="category"
-                  defaultValue={attributes.category}
-                  required
-                >
-                  <Select.Trigger />
-                  <Select.Content>
-                    <Select.Group>
-                      <Select.Item value="accessories">Accessories</Select.Item>
-                      <Select.Item value="books">Books</Select.Item>
-                      <Select.Item value="games">Games</Select.Item>
-                      <Select.Item value="objects">Objects</Select.Item>
-                      <Select.Item value="toys">Toys</Select.Item>
-                    </Select.Group>
-                  </Select.Content>
-                </Select.Root>
-              </Flex>
-              <div>
-                <label htmlFor="description">Description</label>
-                <TextArea
-                  name="description"
-                  defaultValue={attributes.description}
-                ></TextArea>
-              </div>
+      <AlertDialog.Trigger>
+        <Button>
+          <FontAwesomeIcon icon={faPenToSquare} />
+        </Button>
+      </AlertDialog.Trigger>
+      <AlertDialog.Content>
+        <form onSubmit={handleSubmit}>
+          <AlertDialog.Title align={"center"} mb={"5"}>
+            Edit {attributes.name}
+          </AlertDialog.Title>
+          <AlertDialog.Description></AlertDialog.Description>
+          <Flex direction={"column"} gap={"3"}>
+            <div>
+              <label htmlFor="name">Name</label>
+              <TextField.Root
+                type="text"
+                name="name"
+                defaultValue={attributes.name}
+                required
+              ></TextField.Root>
+            </div>
+            <div>
+              <label htmlFor="quantity">Quantity</label>
+              <TextField.Root
+                type="number"
+                name="quantity"
+                defaultValue={attributes.quantity}
+                required
+              ></TextField.Root>
+            </div>
+            <div>
+              <label htmlFor="price">Price</label>
+              <TextField.Root
+                type="text"
+                name="price"
+                defaultValue={attributes.price}
+                required
+              ></TextField.Root>
+            </div>
+            <Flex direction={"column"}>
+              <label htmlFor="name">Category</label>
+              <Select.Root
+                name="category"
+                defaultValue={attributes.category}
+                required
+              >
+                <Select.Trigger />
+                <Select.Content>
+                  <Select.Group>
+                    <Select.Item value="accessories">Accessories</Select.Item>
+                    <Select.Item value="books">Books</Select.Item>
+                    <Select.Item value="games">Games</Select.Item>
+                    <Select.Item value="objects">Objects</Select.Item>
+                    <Select.Item value="toys">Toys</Select.Item>
+                  </Select.Group>
+                </Select.Content>
+              </Select.Root>
             </Flex>
-            <Flex justify={"end"} mt={"5"} gap={"3"}>
-              <AlertDialog.Cancel>
-                <Button color="red">Cancel</Button>
-              </AlertDialog.Cancel>
-              <AlertDialog.Action>
-                <Button type="submit">Save</Button>
-              </AlertDialog.Action>
-            </Flex>
-          </form>
-        </AlertDialog.Content>
-      </AlertDialog.Root>
+            <div>
+              <label htmlFor="description">Description</label>
+              <TextArea
+                name="description"
+                defaultValue={attributes.description}
+              ></TextArea>
+            </div>
+          </Flex>
+          <Flex justify={"end"} mt={"5"} gap={"3"}>
+            <AlertDialog.Cancel>
+              <Button color="red">Cancel</Button>
+            </AlertDialog.Cancel>
+            <AlertDialog.Action>
+              <Button type="submit">Save</Button>
+            </AlertDialog.Action>
+          </Flex>
+        </form>
+      </AlertDialog.Content>
+    </AlertDialog.Root>
   );
 };

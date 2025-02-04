@@ -3,70 +3,80 @@ import { Item } from "../entities/Item";
 import { itemsService } from "../services/api";
 
 export interface StockContextData {
-   items: Item[],
-   createItem: (atrributes: Omit<Item, "id">) => Promise<void>
-   deleteItem: (id: string) => Promise<void>
-   getItem: (id: string) => Item
-   //Usando o Partial<Omit<>> porque nem sempre vamos alterar todas as propriedades de um item
-   editItem: (id: string, attributes: Partial<Omit<Item, "id">>) => Promise<void>
+  items: Item[];
+  createItem: (attributes: Omit<Item, "id">) => Promise<void>;
+  deleteItem: (id: string) => Promise<void>;
+  getItem: (id: string) => Item;
+  //Usando o Partial<Omit<>> porque nem sempre vamos alterar todas as propriedades de um item
+  editItem: (
+    id: string,
+    attributes: Partial<Omit<Item, "id">>
+  ) => Promise<void>;
 }
 
-export const StockContext = createContext({} as StockContextData)
+export const StockContext = createContext({} as StockContextData);
 
 interface StockContextProviderProps {
-   children: ReactNode
+  children: ReactNode;
 }
 
-export const StockContextProvider: React.FC<StockContextProviderProps> = ({children}) => {
-   const [items, setItems] = useState<Item[]>([])
+export const StockContextProvider: React.FC<StockContextProviderProps> = ({
+  children,
+}) => {
+  const [items, setItems] = useState<Item[]>([]);
 
-   useEffect(() => {
-      itemsService.fetchItems().then((storedItems) => {
-         setItems(storedItems)
-      })
-   }, [])
+  useEffect(() => {
+    itemsService.fetchItems().then((storedItems) => {
+      setItems(storedItems);
+    });
+  }, []);
 
-   const createItem = async(atrributes: Omit<Item, 'id'>) => {
-      const newItem = await itemsService.createItem(atrributes)
+  const createItem = async (attributes: Omit<Item, "id">) => {
+    const newItem = await itemsService.createItem(attributes);
 
-      setItems((currentState) => {
-         const updatedState = [...currentState, newItem]
+    setItems((currentState) => {
+      const updatedState = [...currentState, newItem];
 
-         return updatedState
-      })
-   }
+      return updatedState;
+    });
+  };
 
-   const deleteItem = async(id: string) => {
-      await itemsService.deleteItem(id)
-      
-      setItems((currentState) => currentState.filter((item) => item.id !== id))
-   }
+  const deleteItem = async (id: string) => {
+    await itemsService.deleteItem(id);
 
-   const getItem = (id: string) => {
-      const item = items.find((item) => item.id === id)
-      if (!item) {
-         throw new Error(`Item with id ${id} not found`)
-      }
-      return item
-   }
+    setItems((currentState) => currentState.filter((item) => item.id !== id));
+  };
 
-   const editItem = async(id: string, attributes: Partial<Omit<Item, "id">>) => {
-      await itemsService.editItem(id, attributes)
+  const getItem = (id: string) => {
+    const item = items.find((item) => item.id === id);
+    if (!item) {
+      throw new Error(`Item with id ${id} not found`);
+    }
+    return item;
+  };
 
-      setItems((currentState) => {
-         const updatedState = [...currentState]
+  const editItem = async (
+    id: string,
+    attributes: Partial<Omit<Item, "id">>
+  ) => {
+    await itemsService.editItem(id, attributes);
 
-         const itemIndex = updatedState.findIndex((item) => item.id === id)
+    setItems((currentState) => {
+      const updatedState = [...currentState];
 
-         Object.assign(updatedState[itemIndex], attributes)
+      const itemIndex = updatedState.findIndex((item) => item.id === id);
 
-         console.log('oi')
+      Object.assign(updatedState[itemIndex], attributes);
 
-         return updatedState
-      })
-   }
-   
-   return(
-      <StockContext.Provider value={{items, createItem, deleteItem, getItem, editItem}}>{children}</StockContext.Provider>
-   )
-}
+      return updatedState;
+    });
+  };
+
+  return (
+    <StockContext.Provider
+      value={{ items, createItem, deleteItem, getItem, editItem }}
+    >
+      {children}
+    </StockContext.Provider>
+  );
+};
