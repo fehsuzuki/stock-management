@@ -41,14 +41,14 @@
       "description": "Vaso decorativo de cerâmica com design minimalista."
     },
     {
-      "id": "a5d8",
       "name": "teste",
-      "quantity": 1,
+      "quantity": 10,
       "price": 1,
-      "category": "books",
+      "category": "objects",
       "description": "teste",
-      "createdAt": "2025-02-04T17:45:56.602Z",
-      "updatedAt": "2025-02-04T17:45:56.602Z"
+      "createdAt": "05/02/2025, 09:36:11",
+      "updatedAt": "05/02/2025, 09:36:36",
+      "id": "79c6"
     }
   ]
 }

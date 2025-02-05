@@ -24,8 +24,8 @@ const CreateItemSchema = z.object({
   price: z.number(),
   category: z.enum(["accessories", "books", "games", "objects", "toys"]),
   description: z.string(),
-  createdAt: z.date(),
-  updatedAt: z.date()
+  createdAt: z.string(),
+  updatedAt: z.string()
 });
 
 export const EditDialog: React.FC<EditDialogProps> = ({ id, attributes }) => {
@@ -41,8 +41,8 @@ export const EditDialog: React.FC<EditDialogProps> = ({ id, attributes }) => {
     const price = Number(formData.get("price"));
     const category = formData.get("category");
     const description = formData.get("description");
-    const createdAt = attributes.createdAt
-    const updatedAt = new Date()
+    const createdAt = new Date(attributes.createdAt).toLocaleString()
+    const updatedAt = new Date().toLocaleString()
 
     const itemData = CreateItemSchema.parse({
       name,
