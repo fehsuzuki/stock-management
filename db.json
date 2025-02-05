@@ -1,54 +1,154 @@
 {
   "items": [
     {
-      "id": "1",
-      "name": "Nike GT Academy",
-      "quantity": 4,
-      "price": 499,
-      "category": "accessories",
-      "description": "Tênis ideal para jogadores de vôlei"
-    },
-    {
-      "id": "2",
-      "name": "Harry Potter and the Sorcerer's Stone",
-      "quantity": 10,
-      "price": 39.9,
-      "category": "books",
-      "description": "Primeiro livro da série Harry Potter, uma aventura mágica."
-    },
-    {
-      "name": "Chess Set",
+      "id": "8506",
+      "name": "Leather Wallet",
       "quantity": 5,
-      "price": 99.99,
-      "category": "games",
-      "description": "Jogo de xadrez clássico com peças de madeira.",
-      "id": "3"
+      "price": 25,
+      "category": "accessories",
+      "description": "Premium leather wallet with multiple compartments.",
+      "createdAt": "2025-01-30T10:15:30.000Z",
+      "updatedAt": "2025-02-02T14:22:10.000Z"
     },
     {
-      "id": "4",
-      "name": "LEGO City Police Station",
-      "quantity": 3,
-      "price": 299.9,
-      "category": "toys",
-      "description": "Construa sua própria delegacia de polícia com este conjunto LEGO."
-    },
-    {
-      "id": "5",
-      "name": "Ceramic Vase",
-      "quantity": 7,
-      "price": 59.9,
-      "category": "objects",
-      "description": "Vaso decorativo de cerâmica com design minimalista."
-    },
-    {
-      "name": "teste",
+      "id": "8507",
+      "name": "Fantasy Novel",
       "quantity": 10,
-      "price": 1,
+      "price": 15,
+      "category": "books",
+      "description": "A thrilling fantasy novel full of adventure.",
+      "createdAt": "2025-01-25T12:45:00.000Z",
+      "updatedAt": "2025-02-01T09:10:20.000Z"
+    },
+    {
+      "id": "8508",
+      "name": "Chess Board",
+      "quantity": 3,
+      "price": 30,
+      "category": "games",
+      "description": "Classic wooden chess board with detailed pieces.",
+      "createdAt": "2025-02-02T17:30:00.000Z",
+      "updatedAt": "2025-02-04T16:45:10.000Z"
+    },
+    {
+      "id": "8509",
+      "name": "Decorative Vase",
+      "quantity": 7,
+      "price": 20,
       "category": "objects",
-      "description": "teste",
-      "createdAt": "05/02/2025, 09:36:11",
-      "updatedAt": "05/02/2025, 09:36:36",
-      "id": "79c6"
+      "description": "Hand-painted ceramic vase for home decoration.",
+      "createdAt": "2025-01-28T08:20:10.000Z",
+      "updatedAt": "2025-02-03T11:33:45.000Z"
+    },
+    {
+      "id": "8510",
+      "name": "Stuffed Bear",
+      "quantity": 15,
+      "price": 12,
+      "category": "toys",
+      "description": "Soft and cuddly teddy bear for kids.",
+      "createdAt": "2025-02-03T20:10:05.000Z",
+      "updatedAt": "2025-02-04T13:25:00.000Z"
+    },
+    {
+      "name": "Wristwatch",
+      "quantity": 4,
+      "price": 50,
+      "category": "accessories",
+      "description": "Stylish wristwatch with waterproof design.",
+      "createdAt": "2025-01-27T15:10:50.000Z",
+      "updatedAt": "2025-02-05T14:26:12.467Z",
+      "id": "8511"
+    },
+    {
+      "id": "8512",
+      "name": "Mystery Thriller",
+      "quantity": 8,
+      "price": 18,
+      "category": "books",
+      "description": "A gripping mystery novel with unexpected twists.",
+      "createdAt": "2025-01-22T18:40:25.000Z",
+      "updatedAt": "2025-01-30T09:22:50.000Z"
+    },
+    {
+      "id": "8513",
+      "name": "Board Game: Strategy",
+      "quantity": 6,
+      "price": 35,
+      "category": "games",
+      "description": "A fun strategy board game for family and friends.",
+      "createdAt": "2025-02-01T14:15:40.000Z",
+      "updatedAt": "2025-02-04T17:50:20.000Z"
+    },
+    {
+      "id": "8514",
+      "name": "Wall Clock",
+      "quantity": 2,
+      "price": 40,
+      "category": "objects",
+      "description": "Modern design wall clock with silent movement.",
+      "createdAt": "2025-01-26T11:33:00.000Z",
+      "updatedAt": "2025-02-02T12:15:55.000Z"
+    },
+    {
+      "id": "8515",
+      "name": "Toy Car",
+      "quantity": 12,
+      "price": 8,
+      "category": "toys",
+      "description": "Remote-controlled toy car with LED lights.",
+      "createdAt": "2025-02-04T09:45:20.000Z",
+      "updatedAt": "2025-02-05T10:20:00.000Z"
+    },
+    {
+      "id": "8516",
+      "name": "Sunglasses",
+      "quantity": 3,
+      "price": 28,
+      "category": "accessories",
+      "description": "Polarized sunglasses with UV protection.",
+      "createdAt": "2025-01-29T07:30:15.000Z",
+      "updatedAt": "2025-02-03T16:10:40.000Z"
+    },
+    {
+      "id": "8517",
+      "name": "Self-Help Book",
+      "quantity": 9,
+      "price": 22,
+      "category": "books",
+      "description": "Inspirational book for self-improvement.",
+      "createdAt": "2025-01-20T20:50:30.000Z",
+      "updatedAt": "2025-01-29T14:35:25.000Z"
+    },
+    {
+      "id": "8518",
+      "name": "Card Game",
+      "quantity": 5,
+      "price": 10,
+      "category": "games",
+      "description": "Fast-paced card game for all ages.",
+      "createdAt": "2025-02-02T10:00:00.000Z",
+      "updatedAt": "2025-02-04T09:45:15.000Z"
+    },
+    {
+      "id": "8519",
+      "name": "Desk Lamp",
+      "quantity": 4,
+      "price": 45,
+      "category": "objects",
+      "description": "Adjustable LED desk lamp with touch control.",
+      "createdAt": "2025-01-31T12:20:40.000Z",
+      "updatedAt": "2025-02-03T08:30:55.000Z"
+    },
+    {
+      "id": "8520",
+      "name": "Puzzle Cube",
+      "quantity": 20,
+      "price": 6,
+      "category": "toys",
+      "description": "Brain-teasing puzzle cube for all ages.",
+      "createdAt": "2025-02-05T08:15:30.000Z",
+      "updatedAt": "2025-02-05T12:30:00.000Z"
     }
   ]
 }

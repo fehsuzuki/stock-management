@@ -12,6 +12,6 @@ export interface Item {
   price: number;
   category: ItemCategory;
   description: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
 }

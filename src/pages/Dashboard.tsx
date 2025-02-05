@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { StockContext } from "../contexts/StockContext";
 
 export const Dashboard: React.FC = () => {
-  const { items } = useContext(StockContext);
+  const { items, recentItems } = useContext(StockContext);
 
   let sum: number = 0;
 
@@ -28,7 +28,7 @@ export const Dashboard: React.FC = () => {
         <Grid columns={"4"} gap={"5"} minWidth={"1024px"}>
           <ItemCard title="Items diversity" value={items.length} />
           <ItemCard title="Total inventory" value={sum} />
-          <ItemCard title="Recent items" value={0} />
+          <ItemCard title="Recent items" value={recentItems.length} />
           <ItemCard title="Running out items" value={runningOutItems} />
         </Grid>
         <Flex gap={"9"} justify={"center"}>

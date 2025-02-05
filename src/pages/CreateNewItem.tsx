@@ -17,8 +17,8 @@ const CreateItemSchema = z.object({
   price: z.number(),
   category: z.enum(["accessories", "books", "games", "objects", "toys"]),
   description: z.string(),
-  createdAt: z.string(),
-  updatedAt: z.string()
+  createdAt: z.date(),
+  updatedAt: z.date()
 });
 
 export const CreateNewItem: React.FC = () => {
@@ -33,8 +33,8 @@ export const CreateNewItem: React.FC = () => {
     const price = Number(formData.get("price"));
     const category = formData.get("category");
     const description = formData.get("description");
-    const createdAt = new Date().toLocaleString()
-    const updatedAt = new Date().toLocaleString()
+    const createdAt = new Date()
+    const updatedAt = new Date()
 
     ev.currentTarget.reset();
 
