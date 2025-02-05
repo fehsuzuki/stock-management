@@ -1,10 +1,19 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import { Item } from "../entities/Item";
 import { itemsService } from "../services/api";
 
 export interface StockContextData {
   items: Item[];
   recentItems: Item[];
+  searchValue: string;
+  setSearchValue: Dispatch<SetStateAction<string>>;
   createItem: (attributes: Omit<Item, "id">) => Promise<void>;
   deleteItem: (id: string) => Promise<void>;
   getItem: (id: string) => Item;
@@ -26,6 +35,7 @@ export const StockContextProvider: React.FC<StockContextProviderProps> = ({
 }) => {
   const [items, setItems] = useState<Item[]>([]);
   const [recentItems, setRecentItems] = useState<Item[]>([]);
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     itemsService.fetchItems().then((storedItems) => {
@@ -38,7 +48,9 @@ export const StockContextProvider: React.FC<StockContextProviderProps> = ({
 
     limitDate.setDate(limitDate.getDate() - 5);
 
-    setRecentItems(items.filter((item) => new Date(item.createdAt) > limitDate));
+    setRecentItems(
+      items.filter((item) => new Date(item.createdAt) > limitDate)
+    );
   }, [items]);
 
   const createItem = async (attributes: Omit<Item, "id">) => {
@@ -85,7 +97,16 @@ export const StockContextProvider: React.FC<StockContextProviderProps> = ({
 
   return (
     <StockContext.Provider
-      value={{ items, recentItems, createItem, deleteItem, getItem, editItem }}
+      value={{
+        items,
+        recentItems,
+        searchValue,
+        setSearchValue,
+        createItem,
+        deleteItem,
+        getItem,
+        editItem,
+      }}
     >
       {children}
     </StockContext.Provider>
